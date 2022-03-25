@@ -2,7 +2,7 @@
 
 Simple snakemake pipeline for SNP calling.
 
-Required tools: <br />
+# Required tools: <br />
 fastqc <br />
 bwa mem <br />
 samtools <br />
