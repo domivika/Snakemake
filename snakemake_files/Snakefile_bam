@@ -2,13 +2,13 @@ import os
 import glob
 import re
 
-samples, = glob_wildcards("fastq/{sample}.fastq")
+reference="/staging/leuven/stg_00079/teaching/hg19_9/chr9.fa"
 
+samples, = glob_wildcards("fastq/{sample}.fastq")
 
 rule all:
 	input:
 		expand("fastq/{sample}.{extension}", sample=samples, extension=["bam"])
-
 rule bwa_mem:
 	input:
 		fq="fastq/{sample}.fastq"
@@ -19,10 +19,7 @@ rule bwa_mem:
 		echo "Input: {input.fq}"
 		echo "Output: {output.bam}"
 
-		# Environment variable with the genome database
-		GENOME_DB="/staging/leuven/stg_00079/teaching/hg19_9/chr9.fa"
-
 		# Make bam files
-		bwa mem ${DB} {input.fq} | samtools sort - > {sample}.bam
+		bwa mem {reference} {input.fq} | samtools sort - > {output.bam}
 		"""
 
