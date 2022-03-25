@@ -2,8 +2,10 @@ import os
 import glob
 import re
 
+# your path to the reference genome
 reference="/staging/leuven/stg_00079/teaching/hg19_9/chr9.fa"
 
+# your path to the directory with samples
 samples, = glob_wildcards("fastq/{sample}.fastq")
 
 rule all:
