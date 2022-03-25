@@ -2,6 +2,14 @@
 
 Simple snakemake pipeline for SNP calling.
 
+Required tools: <br />
+fastqc <br />
+bwa mem <br />
+samtools <br />
+bcftools <br />
+vt <br />
+snpEff <br />
+
 
 # Steps:
 1. FASTQ Quality check: <br />
