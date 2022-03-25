@@ -2,6 +2,7 @@
 
 Simple snakemake pipeline for SNP calling.
 
+
 # Steps:
 1. Make fastqc reports: <br />
 Run Snakefile_fastqc
