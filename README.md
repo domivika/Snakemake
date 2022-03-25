@@ -2,7 +2,8 @@
 
 Simple snakemake pipeline for SNP calling.
 
-# Conduct fastqc reports:
-1. Run Snakefile_fastqc
-# Make bam files:
-2. Run Snakefile_bam
+# Steps:
+1. Make fastqc reports:
+Run Snakefile_fastqc
+2. Make bam files:
+Run Snakefile_bam
