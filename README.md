@@ -15,7 +15,9 @@ snpEff <br />
 1. FASTQ Quality check: <br />
 Run Snakefile_fastqc
 2. Align the reads: <br />
-Run Snakefile_bam <br />
+Run Snakefile_bam
+3. Create indici: <br />
+Run Snakefile_bai <br />
 # TODO: <br />
 create indici <br />
 SNP Calling using bcftools <br />
