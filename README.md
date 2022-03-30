@@ -19,7 +19,6 @@ Run Snakefile_bam
 3. Create indici: <br />
 Run Snakefile_bai <br />
 # TODO: <br />
-create indici <br />
 SNP Calling using bcftools <br />
 SNP filtering & cleaning using vt <br />
 Snp Annotation using SnpEff
