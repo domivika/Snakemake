@@ -1,0 +1,26 @@
+import os
+import glob
+import re
+
+# your path to the reference genome
+reference="/staging/leuven/stg_00079/teaching/hg19_9/chr9.fa"
+
+# your path to the directory with samples
+samples, = glob_wildcards("fastq/{sample}.bam")
+
+rule all:
+	input:
+		expand("fastq/{sample}.{extension}", sample=samples, extension=["vcf"])
+rule bcftools:
+	input:
+		bam="fastq/{sample}.bam"
+	output:
+		vcf="fastq/{sample}.vcf"
+	shell:
+		"""
+		echo "Input: {input.bam}"
+		echo "Output: {output.vcf}"
+
+		bcftools mpileup -Ou -f {reference} {input.bam} | bcftools call -mv -Ov -o {output.vcf}
+		"""
+
