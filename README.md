@@ -22,3 +22,4 @@ Run Snakefile_bai <br />
 SNP Calling using bcftools <br />
 SNP filtering & cleaning using vt <br />
 Snp Annotation using SnpEff
+Merge snakefiles into one!
