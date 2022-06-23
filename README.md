@@ -1,2 +1,2 @@
 # Snakemake
-Simple snakemake workflow for SNP calling and annotation.
+Simple snakemake workflow for SNP calling, annotation and visualization.
