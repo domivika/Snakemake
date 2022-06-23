@@ -13,6 +13,7 @@ rule all:
         fastqc_zip = expand("010.fastqc/{sample}_fastqc.zip",
                           sample=samples),
         vcf = "050.snpeff/snps.annotated.vcf",
+	indelplot = "060.stats/indels.0.png"
 
 rule fastqc:
     input:
@@ -107,4 +108,21 @@ rule snpeff:
 
         # move output files to the snpeff output folder
         mv snpEff_genes.txt snpEff_summary.html 050.snpeff
+        """
+
+rule stats:
+    input:
+        vcf = "050.snpeff/snps.annotated.vcf",
+
+    output:
+        stats = "060.stats/snps.stats",
+        indelplot = "060.stats/indels.0.png",
+	
+    shell:
+        """
+        mkdir -p 060.stats
+
+        bcftools stats -s - {input.vcf} > {output.stats}
+
+        plot-vcfstats -P -p 060.stats {output.stats}
         """
